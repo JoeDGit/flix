@@ -3,36 +3,14 @@ const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 import star from "!file-loader!./star.svg";
 import notFound from "./notFound.jpg";
 import { generateImdbId, generateTrailer } from "./Randomiser";
+import { callApi } from "./utils/callApi";
 import InfoModal from "./InfoModal";
-
 import "./cardFlip.css";
 import tv from "!file-loader!./tv.svg";
 import movie from "!file-loader!./movie.svg";
 import info from "!file-loader!./info.svg";
 import imdb from "!file-loader!./imdb.svg";
 import yt from "!file-loader!./yt.svg";
-
-// const Card = ({ title, rating, poster, link }) => {
-//   return (
-//     <div
-//       className="container flex bg-contain bg-no-repeat mx-2 my-2 shrink-0 shadow-2xl bg-[#9CA3AF] border-solid border-slate-400 rounded border-2  md:mx-10 md:my-4"
-//       style={{
-//         backgroundImage: poster
-//           ? `url(https://image.tmdb.org/t/p/w154${poster})`
-//           : `url(${notFound})`,
-//         height: "252px",
-//         width: "150px",
-//       }}
-//     >
-//       <div className="truncate justify-center self-end min-w-full font-medium">
-//         {title}
-//       </div>
-//       <div className="relative right-[140px] top-[10px] z-10 h-[25px] w-[50px] rounded  text-white font-medium text-sm px-1 bg-slate-400">
-//         <div className="relative top-[2.5px]">{rating}</div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
   return (
@@ -131,77 +109,6 @@ const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
       </div>
     </div>
   );
-};
-
-export const UseFetchCards = () => {
-  const [fetchCards, setFetchCards] = useState([]);
-  const stateCopy = [...fetchCards];
-  const stateCopySorted = stateCopy.sort((x, y) => {
-    return y.popularity - x.popularity;
-  });
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const response =
-        await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1&region=GB
-  `).then((pageResponse) => pageResponse.json());
-
-      const cards = await Promise.all(
-        response.results
-          .map(async (result) => {
-            return {
-              title: result.title,
-              rating: result.vote_average,
-              overview: result.overview,
-              poster: result.poster_path,
-              popularity: result.popularity,
-              imdb_id: result.imdb_id
-                ? result.imdb_id
-                : await generateImdbId(result.id, "movie"),
-              releaseDate: result.release_date
-                ? result.release_date
-                : result.first_air_date,
-              type: "movie",
-              trailer: await generateTrailer(result.id, "movie"),
-            };
-          })
-          .slice(0, 12)
-      );
-
-      setFetchCards(cards);
-    };
-    const fetchTv = async () => {
-      const responseTv =
-        await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US
-  `).then((pageResponse) => pageResponse.json());
-      const cardsTv = await Promise.all(
-        responseTv.results
-          .map(async (result) => {
-            return {
-              title: result.name,
-              rating: result.vote_average,
-              overview: result.overview,
-              poster: result.poster_path,
-              popularity: result.popularity,
-              imdb_id: result.imdb_id
-                ? result.imdb_id
-                : await generateImdbId(result.id, "tv"),
-              releaseDate: result.release_date
-                ? result.release_date
-                : result.first_air_date,
-              type: "tv",
-              trailer: await generateTrailer(result.id, "tv"),
-            };
-          })
-          .slice(0, 12)
-      );
-      setFetchCards((prevState) => [...prevState, ...cardsTv]);
-    };
-    fetchMovies();
-    fetchTv();
-  }, []);
-
-  return stateCopySorted;
 };
 
 export default Card;

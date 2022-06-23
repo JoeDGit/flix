@@ -6,40 +6,10 @@ import SearchButton from "./SearchButton";
 import PosterContainer from "./PosterContainer";
 import RatingSlider from "./RatingSlider";
 import MediaTypeComponent from "./MediaTypeComponent";
+import { generateImdbId } from "./utils/generateImdbId";
 
 const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 
-export const generateImdbId = async (id, type) => {
-  let imdbFetch = await fetch(
-    `https://api.themoviedb.org/3/${type}/${id}/external_ids?api_key=${api_key}&language=en-US`
-  );
-
-  let imdbFetchJson = await imdbFetch.json();
-
-  let imdbId = `https://www.imdb.com/title/${imdbFetchJson.imdb_id}`;
-
-  return imdbId;
-};
-
-export const generateTrailer = async (id, type) => {
-  let trailerFetch = await fetch(
-    `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api_key}`
-  );
-  let trailerFetchJson = await trailerFetch.json();
-  let trailerResults = trailerFetchJson.results;
-
-  let trailerId = await trailerResults
-    .filter((result) => {
-      if (result.site == "YouTube") {
-        return result.key;
-      }
-    })
-    .map((x) => x.key);
-  const trailerPath = `https://www.youtube.com/watch?v=${trailerId[0]}`;
-
-  return trailerPath;
-};
-generateTrailer("100", "movie");
 export const Randomiser = () => {
   const [mediaType, setMediaType] = useState("movie");
   const [sliderValue, setSliderValue] = useState("6.8");

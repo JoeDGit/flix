@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Carousel.css";
-import { generateImdbId } from "./Randomiser";
+import { generateImdbId } from "./utils/generateImdbId";
 
 const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 

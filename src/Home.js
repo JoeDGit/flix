@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Carousel, { CarouselItem, UseFetchCarousel } from "./Carousel";
 import star from "!file-loader!./star.svg";
-import Card, { UseFetchCards } from "./Card";
+import Card from "./Card";
 import Loader from "./Loader";
 import CardLoad from "./CardLoad";
 import InfoModal from "./InfoModal";
@@ -10,7 +10,7 @@ import InfoModal from "./InfoModal";
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const callCarousel = UseFetchCarousel();
-  const cardLoad = UseFetchCards();
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -64,7 +64,7 @@ const Home = () => {
       </div>
 
       <div className="container  flex flex-wrap justify-center min-w-full text-center mt-5 p-2">
-        {loading ? <Loader /> : <CardLoad cardLoad={cardLoad} />}
+        {loading ? <Loader /> : <CardLoad />}
       </div>
     </div>
   );
