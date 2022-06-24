@@ -3,13 +3,13 @@ import Nav from "./Nav";
 import Carousel, { CarouselItem, UseFetchCarousel } from "./Carousel";
 import star from "!file-loader!./star.svg";
 import Card from "./Card";
-import Loader from "./Loader";
-import CardLoad from "./CardLoad";
 import InfoModal from "./InfoModal";
+import UseCardLoad from "./UseCardLoad";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const callCarousel = UseFetchCarousel();
+  const callCards = UseCardLoad("rating");
 
   useEffect(() => {
     setTimeout(() => {
@@ -64,7 +64,20 @@ const Home = () => {
       </div>
 
       <div className="container  flex flex-wrap justify-center min-w-full text-center mt-5 p-2">
-        {loading ? <Loader /> : <CardLoad />}
+        {callCards.map((props, index) => {
+          return (
+            <Card
+              key={`Card-${index + 1}`}
+              title={props.title}
+              rating={props.rating}
+              poster={props.poster}
+              release={props.releaseDate.substr(0, 4)}
+              type={props.type}
+              imdbId={props.imdb_id}
+              trailer={props.trailer}
+            />
+          );
+        })}
       </div>
     </div>
   );
