@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
-import Carousel, { CarouselItem, UseFetchCarousel } from "./Carousel";
+import Carousel, { CarouselItem } from "./Carousel";
 import star from "!file-loader!./star.svg";
 import Card from "./Card";
 import InfoModal from "./InfoModal";
 import UseCardLoad from "./UseCardLoad";
+import { UseFetchCarousel } from "./UseFetchCarousel";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);

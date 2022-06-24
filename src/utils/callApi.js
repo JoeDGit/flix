@@ -27,6 +27,7 @@ export const callApi = async (
         rating: result.vote_average,
         overview: result.overview,
         poster: result.poster_path,
+        backdrop: result.backdrop_path,
         popularity: result.popularity,
         imdb_id: result.imdb_id
           ? result.imdb_id

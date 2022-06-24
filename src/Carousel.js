@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Carousel.css";
+import { callApi } from "./utils/callApi";
 import { generateImdbId } from "./utils/generateImdbId";
 
 const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
@@ -8,33 +9,9 @@ const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 export const UseFetchCarousel = () => {
   const [fetchCarousel, setFetchCarousel] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      const response =
-        await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1&region=GB
-  `).then((pageResponse) => pageResponse.json());
-
-      const carouselMovies = await Promise.all(
-        response.results
-          .map(async (result) => {
-            return {
-              title: result.title,
-              rating: result.vote_average,
-              overview: result.overview,
-              backdrop: result.backdrop_path,
-              popularity: result.popularity,
-              imdb_id: result.imdb_id
-                ? result.imdb_id
-                : await generateImdbId(result.id, "movie"),
-              releaseDate: result.release_date
-                ? result.release_date
-                : result.first_air_date,
-            };
-          })
-          .slice(0, 8)
-      );
-      setFetchCarousel(carouselMovies);
-    };
-    fetchData();
+    callApi("movie", "now_playing").then((result) =>
+      result.slice(0, 8).setFetchCarousel(result)
+    );
   }, []);
   return fetchCarousel;
 };
