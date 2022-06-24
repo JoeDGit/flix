@@ -8,14 +8,15 @@ import UseCardLoad from "./UseCardLoad";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [homeSort, setHomeSort] = useState("rating");
   const callCarousel = UseFetchCarousel();
-  const callCards = UseCardLoad("rating");
+  const callCards = UseCardLoad(homeSort);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 600);
-  }, []);
+    });
+  }, [loading]);
 
   return (
     <div className="Home">
@@ -36,22 +37,20 @@ const Home = () => {
                 }}
                 src={`http://image.tmdb.org/t/p/original${item.backdrop}`}
               ></img>
-              <div className=" absolute  text-white bottom-7 max-w-1/2 h-[8.5rem] bg-[#1f2937] border-solid border border-slate-200 rounded-lg opacity-80 px-2 py-2">
-                <div className="flex flex-row ml-2 align-left flex-wrap">
-                  <div className=" h-[1.5rem]">
-                    {item.title} ({item.releaseDate.slice(0, 4)})
-                    <div className="h-[1.5rem]">
-                      Rating: {item.rating}
-                      <img
-                        className=" inline h-[12px] w-[12px] ml-1 mb-1 md:h-[15px] md:w-[15px] "
-                        src={star}
-                        alt="star"
-                      ></img>
-                    </div>
-                    <p className="pb-2 truncate text-[12px] w-[38rem] whitespace-normal ">
-                      {item.overview}
-                    </p>
-                  </div>
+              <div className=" absolute flex flex-col  align-left   text-white bottom-7 w-1/2 xl:w-[639px] h-[8.5rem] bg-[#1f2937] border-solid border border-slate-200  rounded-lg opacity-80 px-2 pt-2 ">
+                <div className=" basis-1/5 h-[1.5rem] truncate">
+                  {item.title} ({item.releaseDate.slice(0, 4)})
+                </div>
+                <div className="basis-1/5 h-[1.5rem]">
+                  Rating: {item.rating}
+                  <img
+                    className=" inline h-[12px] w-[12px] ml-1 mb-1 md:h-[15px] md:w-[15px] "
+                    src={star}
+                    alt="star"
+                  ></img>
+                </div>
+                <div className=" truncate basis-3/5 max-h-[50px] text-[12px]  whitespace-normal ">
+                  {item.overview}
                 </div>
               </div>
             </CarouselItem>
