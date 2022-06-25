@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.css";
-import logo from "./FlixLogo.png";
+import "../index.css";
+import logo from "../assets/FlixLogo.png";
 
 export default function Nav() {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Nav from "./Nav";
+import Nav from "../Home/Nav";
 import MoviesCard from "./MoviesCard";
-import { generateImdbId } from "./Randomiser";
+
 const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 
 export default function Movies() {

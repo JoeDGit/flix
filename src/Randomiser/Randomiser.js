@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Nav from "./Nav";
+import Nav from "../Home/Nav";
 import Blurb from "./Blurb";
-import Title from "./Title";
+import Title from "../Home/Title";
 import SearchButton from "./SearchButton";
 import PosterContainer from "./PosterContainer";
 import RatingSlider from "./RatingSlider";
 import MediaTypeComponent from "./MediaTypeComponent";
-import { generateImdbId } from "./utils/generateImdbId";
+import { generateImdbId } from "../utils/generateImdbId";
+
+import notFound from "../assets/notFound.jpg";
 
 const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 

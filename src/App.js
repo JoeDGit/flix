@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Movies from "./Movies";
-import Randomiser from "./Randomiser";
-import TvShows from "./TvShows";
+import Home from "./Home/Home";
+import Movies from "./Movies/Movies";
+import Randomiser from "./Randomiser/Randomiser";
+import TvShows from "./TvShows/TvShows";
 
 const App = () => (
   <Router>

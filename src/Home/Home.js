@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Carousel, { CarouselItem } from "./Carousel";
-import star from "!file-loader!./star.svg";
-import Card from "./Card";
-import InfoModal from "./InfoModal";
-import UseCardLoad from "./UseCardLoad";
+import Card from "../Card/Card";
+
+import UseCardLoad from "../Card/UseCardLoad";
 import { UseFetchCarousel } from "./UseFetchCarousel";
+import star from "!file-loader!./star.svg";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,6 @@ const Home = () => {
   return (
     <div className="Home">
       <Nav />
-      <InfoModal />
 
       <Carousel>
         {callCarousel.map((item, index) => {
@@ -64,17 +63,17 @@ const Home = () => {
       </div>
 
       <div className="container  flex flex-wrap justify-center min-w-full text-center mt-5 p-2">
-        {callCards.map((props, index) => {
+        {callCards.map((result, index) => {
           return (
             <Card
               key={`Card-${index + 1}`}
-              title={props.title}
-              rating={props.rating}
-              poster={props.poster}
-              release={props.releaseDate.substr(0, 4)}
-              type={props.type}
-              imdbId={props.imdb_id}
-              trailer={props.trailer}
+              title={result.title}
+              rating={result.rating}
+              poster={result.poster}
+              release={result.releaseDate.substr(0, 4)}
+              type={result.type}
+              imdbId={result.imdb_id}
+              trailer={result.trailer}
             />
           );
         })}

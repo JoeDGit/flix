@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { callApi } from "./utils/callApi";
+import { callApi } from "../utils/callApi";
 
 export const UseFetchCarousel = () => {
   const [fetchCarousel, setFetchCarousel] = useState([]);
@@ -15,3 +15,5 @@ export const UseFetchCarousel = () => {
   }, []);
   return fetchCarousel;
 };
+
+export default UseFetchCarousel;

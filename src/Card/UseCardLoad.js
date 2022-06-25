@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { callApi } from "./utils/callApi";
+import { callApi } from "../utils/callApi";
 
 export default function UseCardLoad(props) {
   const [fetchCards, setFetchCards] = useState([]);

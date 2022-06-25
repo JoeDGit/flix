@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
-import star from "!file-loader!./star.svg";
-import notFound from "./notFound.jpg";
-import { generateImdbId, generateTrailer } from "./Randomiser";
-import { callApi } from "./utils/callApi";
+import React from "react";
 import InfoModal from "./InfoModal";
 import "./cardFlip.css";
-import tv from "!file-loader!./tv.svg";
-import movie from "!file-loader!./movie.svg";
-import info from "!file-loader!./info.svg";
-import imdb from "!file-loader!./imdb.svg";
-import yt from "!file-loader!./yt.svg";
+import star from "!file-loader!../assets/star.svg";
+import notFound from "../assets/notFound.jpg";
+
+import tv from "!file-loader!../assets/tv.svg";
+import movie from "!file-loader!../assets/movie.svg";
+import info from "!file-loader!../assets/info.svg";
+import imdb from "!file-loader!../assets/imdb.svg";
+import yt from "!file-loader!../assets/yt.svg";
 
 const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
   return (
@@ -28,7 +26,7 @@ const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
         >
           <div className="absolute w-full p-1 pt-2 ">
             <div className="py-1 px-1.5 pr-3 absolute items-center flex justify-between  w-full h-[30px]">
-              <div className=" bg-[#1F2937] rounded p-1 leading-none text-white  opacity-90 ">
+              <div className=" bg-[#1F2937] rounded p-1 leading-none text-white  opa/assetscity-90 ">
                 {release}
               </div>
 

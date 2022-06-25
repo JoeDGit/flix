@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./Carousel.css";
-import { callApi } from "./utils/callApi";
-import { generateImdbId } from "./utils/generateImdbId";
 
-const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
-
-export const UseFetchCarousel = () => {
-  const [fetchCarousel, setFetchCarousel] = useState([]);
-  useEffect(() => {
-    callApi("movie", "now_playing").then((result) =>
-      result.slice(0, 8).setFetchCarousel(result)
-    );
-  }, []);
-  return fetchCarousel;
-};
 export const CarouselItem = ({ children, width }) => {
   return (
     <div

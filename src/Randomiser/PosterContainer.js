@@ -1,5 +1,5 @@
 import React from "react";
-import notFound from "./notFound.jpg";
+import notFound from "../assets/notFound.jpg";
 
 export default function PosterContainer(props) {
   return (
