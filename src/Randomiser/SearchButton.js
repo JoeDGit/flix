@@ -4,7 +4,12 @@ export default function SearchButton(props) {
   const handlePrevious = async () => {
     const previousSearchResult =
       props.resultHistory[props.resultHistory.length - 2];
-    const prevApiCall = await props.callId(previousSearchResult);
+
+    const prevApiCall = await props.callId(
+      previousSearchResult,
+      props.mediaType
+    );
+
     props.setSearchResult(prevApiCall);
     props.shallowHistoryState.pop();
     props.setResultHistory(props.shallowHistoryState);
