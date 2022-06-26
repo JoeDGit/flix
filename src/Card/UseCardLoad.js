@@ -7,14 +7,14 @@ export default function UseCardLoad(props) {
   useEffect(() => {
     Promise.all([callApi("movie", "popular"), callApi("tv", "popular")]).then(
       (result) => {
-        const stateCopySorted = result.flat().sort(
+        const sortedApiCall = result.flat().sort(
           (x, y) => {
             return y[props] - x[props];
           },
           [props]
         );
 
-        setFetchCards(stateCopySorted);
+        setFetchCards(sortedApiCall);
       }
     );
   });

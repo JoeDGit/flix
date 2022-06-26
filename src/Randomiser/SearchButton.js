@@ -1,4 +1,5 @@
 import React from "react";
+import UseRandomise from "./UseRandomise";
 
 export default function SearchButton(props) {
   const handlePrevious = async () => {
@@ -9,11 +10,12 @@ export default function SearchButton(props) {
     props.shallowHistoryState.pop();
     props.setResultHistory(props.shallowHistoryState);
   };
+
   return (
     <div className="flex mw-6">
       <button
         className="order-2 text-white p-2 rounded-lg bg-[#374151] hover:animate-pulse border-box hover:ring-1 transition-all ring-white w-48 mx-auto mt-3 duration-75"
-        onClick={() => props.search(props.mediaType, props.sliderValue)}
+        onClick={() => props.search()}
       >
         {props.searchResult.title ? "Next!" : "Find Me Something to Watch!"}
       </button>

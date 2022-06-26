@@ -6,22 +6,30 @@ const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
 // query = [popular, now_playing, latest, top_rated]
 // const language = "&language=en-US";
 // const region = "&region=GB";
-// const page = "&page=x"
+// const page = "&page=x&"
 // const sortBy = ["rating", "popularity", ]
 
 export const callApi = async (
-  type,
+  type = "movie",
   query,
   language = "",
   page = "",
   region = "",
-  sortBy
+  rating = "",
+  sortBy,
+  randomise = false
 ) => {
+  if (query === "discover") {
+    const randomiserResponse = await fetch(
+      `https://api.themoviedb.org/3/${query}/${type}?api_key=${api_key}${language}${page}${rating}${region}`
+    ).then((response) => response.json());
+    return randomiserResponse;
+  }
   const response = await fetch(
-    `https://api.themoviedb.org/3/${type}/${query}?api_key=${api_key}${language}${page}${region}`
+    `https://api.themoviedb.org/3/${type}/${query}?api_key=${api_key}${language}${page}${rating}${region}`
   ).then((response) => response.json());
   const mappedResponse = await Promise.all(
-    response.results.map(async (result) => {
+    response.results.map((result) => {
       return {
         title: result.title ? result.title : result.name,
         rating: result.vote_average,
@@ -31,12 +39,13 @@ export const callApi = async (
         popularity: result.popularity,
         imdb_id: result.imdb_id
           ? result.imdb_id
-          : await generateImdbId(result.id, type),
+          : generateImdbId(result.id, type),
         releaseDate: result.release_date
           ? result.release_date
           : result.first_air_date,
         type: type,
-        trailer: await generateTrailer(result.id, type),
+        trailer: generateTrailer(result.id, type),
+        pages: response.total_pages,
       };
     })
   ).catch((error) => console.log(error));

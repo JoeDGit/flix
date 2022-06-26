@@ -11,7 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [homeSort, setHomeSort] = useState("rating");
   const callCarousel = UseFetchCarousel();
-  const callCards = UseCardLoad(homeSort);
+  const callCards = UseCardLoad("rating");
 
   useEffect(() => {
     setTimeout(() => {
