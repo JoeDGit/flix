@@ -8,13 +8,14 @@ export default function Movies() {
   const [movies, setMovies] = useState();
   const [endpoint, setEndpoint] = useState("now_playing");
   const [isLoading, setIsLoading] = useState(true);
+  const [isActive, setIsActive] = useState("now_playing");
 
   useEffect(() => {
     const fetchMovies = async (props) => {
       Promise.all([
-        callApi("movie", "popular"),
-        callApi("movie", "popular", "&language=en-US", "&page=2"),
-        callApi("movie", "popular", "&language=en-US", "&page=3"),
+        callApi("movie", endpoint),
+        callApi("movie", endpoint, "&language=en-US", "&page=2"),
+        callApi("movie", endpoint, "&language=en-US", "&page=3"),
       ]).then((result) => {
         const sortedApiCall = result.flat().sort(
           (x, y) => {
@@ -29,36 +30,60 @@ export default function Movies() {
     fetchMovies("rating");
   }, [endpoint]);
 
-  const handleClick = (id) => {
-    setEndpoint(id);
+  const handleClick = (input) => {
+    setEndpoint(input);
+    setIsActive(input);
   };
+
+  const activeLink =
+    "active:text-white border-[1px] text-white border-slate-400 bg-[#1f2937] p-1 rounded-none";
+  const normalLink =
+    "bg-slate-400 p-1 rounded-xl border-[1px] border-transparent p-1 hover:border-[1px] hover:text-white hover:border-slate-400 hover:bg-[#1f2937] text-[#1f2937] cursor-pointer transition-all durations-300 ease-linear text-sm ";
 
   return (
     <React.Fragment>
       <Nav />
 
       <div className="w-100 flex justify-center items-center ">
-        <div className="  ">
-          <ul className="child:ring-2 child:rounded text-white child:cursor-pointer flex flex-col mt-4  md:flex-start md:flex-row md:space-x-8 md:mt-0 md:text-medium md:font-medium ">
-            <li>
-              <a onClick={() => handleClick("now_playing")}>In cinemas</a>
-            </li>
-            <li>
-              <a onClick={() => handleClick("latest")}>Latest</a>
-            </li>
-            <li>
-              <a onClick={() => handleClick("popular")}>Most Popular</a>
-            </li>
-            <li>
-              <a onClick={() => handleClick("top_rated")}>Highest Rated</a>
-            </li>
-          </ul>
-        </div>
+        <ul className="gap-6 flex mt-4  ">
+          <li>
+            <a
+              className={isActive === "now_playing" ? activeLink : normalLink}
+              onClick={() => handleClick("now_playing")}
+            >
+              In cinemas
+            </a>
+          </li>
+          <li>
+            <a
+              className={isActive === "upcoming" ? activeLink : normalLink}
+              onClick={() => handleClick("upcoming")}
+            >
+              Upcoming
+            </a>
+          </li>
+          <li>
+            <a
+              className={isActive === "popular" ? activeLink : normalLink}
+              onClick={() => handleClick("popular")}
+            >
+              Most Popular
+            </a>
+          </li>
+          <li>
+            <a
+              className={isActive === "top_rated" ? activeLink : normalLink}
+              onClick={() => handleClick("top_rated")}
+            >
+              Highest Rated
+            </a>
+          </li>
+        </ul>
       </div>
       {isLoading ? (
         <MovieLoader />
       ) : (
-        <div className="container  flex flex-wrap justify-center min-w-full text-center mt-5 p-2">
+        <div className="container  flex flex-wrap justify-center min-w-full text-center mt-1 p-2">
           {movies.map((result, index) => {
             return (
               <Card
