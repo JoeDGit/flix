@@ -17,6 +17,6 @@ export default function UseCardLoad(props) {
         setFetchCards(sortedApiCall);
       }
     );
-  });
+  }, []);
   return fetchCards;
 }

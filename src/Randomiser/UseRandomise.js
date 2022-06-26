@@ -5,7 +5,6 @@ import { callId } from "../utils/callId";
 export default function UseRandomise({ mediaType, sliderValue }) {
   const [searchResult, setSearchResult] = useState({});
   const [resultHistory, setResultHistory] = useState([]);
-  const [collectedProps, setCollectedProps] = useState();
   const [page, setpage] = useState("1");
 
   const pickRandomItem = (length) => Math.floor(Math.random() * length);

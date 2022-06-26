@@ -19,17 +19,13 @@ export const Randomiser = () => {
   const [resultHistory, setResultHistory] = useState([]);
   const shallowHistoryState = Array.from(resultHistory).map((x) => x);
 
-  const pickRandomItem = (length) => Math.floor(Math.random() * length);
-
-  const value = UseRandomise({ mediaType, sliderValue, randomise: true });
-
   const handleSlideChange = (e) => {
     const rating = e.target.value;
     setSliderValue(rating);
   };
 
   const handleClick = (e) => {
-    return value;
+    setSearchResult(UseRandomise({ mediaType, sliderValue, randomise: true }));
   };
 
   return (

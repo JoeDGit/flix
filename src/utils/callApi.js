@@ -29,7 +29,7 @@ export const callApi = async (
     `https://api.themoviedb.org/3/${type}/${query}?api_key=${api_key}${language}${page}${rating}${region}`
   ).then((response) => response.json());
   const mappedResponse = await Promise.all(
-    response.results.map((result) => {
+    response.results.map(async (result) => {
       return {
         title: result.title ? result.title : result.name,
         rating: result.vote_average,
@@ -39,12 +39,12 @@ export const callApi = async (
         popularity: result.popularity,
         imdb_id: result.imdb_id
           ? result.imdb_id
-          : generateImdbId(result.id, type),
+          : await generateImdbId(result.id, type),
         releaseDate: result.release_date
           ? result.release_date
           : result.first_air_date,
         type: type,
-        trailer: generateTrailer(result.id, type),
+        trailer: await generateTrailer(result.id, type),
         pages: response.total_pages,
       };
     })
