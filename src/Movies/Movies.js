@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { callApi } from "../utils/callApi";
-import Nav from "../Home/Nav";
+
 import Card from "../Card/Card";
 import MovieLoader from "./MovieLoader";
 
@@ -35,14 +35,12 @@ export default function Movies() {
   };
 
   const activeLink =
-    "active:text-white border-[1px] text-white border-slate-400 bg-[#1f2937] p-1 rounded-sm";
+    "active:text-white border-[1px] text-white border-slate-400 bg-[#1f2937] p-1 rounded-sm text-sm";
   const normalLink =
     "bg-slate-400 p-1 rounded-md border-[1px] border-transparent p-1 hover:border-[1px] hover:text-white hover:border-slate-400 hover:bg-[#1f2937] text-[#1f2937] cursor-pointer transition-all durations-300 ease-linear text-sm ";
 
   return (
     <React.Fragment>
-      <Nav />
-
       <div className="w-100 flex justify-center items-center ">
         <ul className="gap-6 flex mt-4  ">
           <li>
@@ -50,7 +48,7 @@ export default function Movies() {
               className={endpoint === "now_playing" ? activeLink : normalLink}
               onClick={() => handleClick("now_playing")}
             >
-              In cinemas
+              In Cinemas
             </a>
           </li>
           <li>

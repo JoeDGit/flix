@@ -16,15 +16,8 @@ export const callApi = async (
   page = "",
   region = "",
   rating = "",
-  sortBy,
-  randomise = false
+  sortBy
 ) => {
-  if (query === "discover") {
-    const randomiserResponse = await fetch(
-      `https://api.themoviedb.org/3/${query}/${type}?api_key=${api_key}${language}${page}${rating}${region}`
-    ).then((response) => response.json());
-    return randomiserResponse;
-  }
   const response = await fetch(
     `https://api.themoviedb.org/3/${type}/${query}?api_key=${api_key}${language}${page}${rating}${region}`
   ).then((response) => response.json());

@@ -5,7 +5,7 @@ export default function MovieLoader() {
     "flex bg-white items-center h-[10px] w-[10px] rounded-full ";
 
   return (
-    <div className="child:mt-[9rem] justify-center align-center basis h-full flex w-100">
+    <div className="relative right-[57px] child:mt-[9rem] justify-center align-center basis h-full flex w-100">
       <div className="relative bottom-[50px] left-[75px] text-white text-3xl">
         Loading
       </div>

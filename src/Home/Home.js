@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Nav from "./Nav";
 import Carousel, { CarouselItem } from "./Carousel";
 import Card from "../Card/Card";
-
 import UseCardLoad from "../Card/UseCardLoad";
 import { UseFetchCarousel } from "./UseFetchCarousel";
 import star from "!file-loader!./star.svg";
@@ -21,8 +19,6 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Nav />
-
       <Carousel>
         {callCarousel.map((item, index) => {
           return (

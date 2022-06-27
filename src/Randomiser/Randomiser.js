@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Nav from "../Home/Nav";
 import Blurb from "./Blurb";
 import Title from "./Title";
 import SearchButton from "./SearchButton";
@@ -59,9 +58,6 @@ export const Randomiser = () => {
 
   return (
     <div>
-      <div className="hidden md:block">
-        <Nav />
-      </div>
       <div className=" flex ">
         <div className="pl-16 pr-16 pb-5 pt-4 shadow-2xl  max-w-25 flex flex-col rounded-lg h-full mx-auto">
           <h3 className="text-2xl mb-2 font-mono text-white mx-auto">
