@@ -41,7 +41,7 @@ export default function Movies() {
 
   return (
     <React.Fragment>
-      <div className="w-100 flex justify-center items-center ">
+      <div className="w-100 justify-center items-center hidden sm:flex ">
         <ul className="gap-6 flex mt-4  ">
           <li>
             <a
@@ -77,6 +77,44 @@ export default function Movies() {
           </li>
         </ul>
       </div>
+
+      <div className="mobile-nav w-100  flex justify-center items-center sm:hidden ">
+        <ul className="text-xs static flex mt-4  gap-1  ">
+          <li>
+            <a
+              className={endpoint === "popular" ? activeLink : normalLink}
+              onClick={() => handleClick("popular")}
+            >
+              Popular
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "top_rated" ? activeLink : normalLink}
+              onClick={() => handleClick("top_rated")}
+            >
+              Rated
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "airing_today" ? activeLink : normalLink}
+              onClick={() => handleClick("airing_today")}
+            >
+              Today
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "on_the_air" ? activeLink : normalLink}
+              onClick={() => handleClick("on_the_air")}
+            >
+              Upcoming
+            </a>
+          </li>
+        </ul>
+      </div>
+
       {isLoading ? (
         <MovieLoader />
       ) : (
