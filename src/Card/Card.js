@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import InfoModal from "./InfoModal";
-import { computePosition, flip, shift, offset } from "@floating-ui/dom";
 import Tippy from "@tippyjs/react";
 
 import "./cardFlip.css";
