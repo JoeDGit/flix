@@ -40,9 +40,9 @@ export default function Nav() {
     setActiveNav(navlink);
   };
   return (
-    <div className="">
+    <div className="w-full">
       <nav className="bg-white border-gray-200 px-2 sm:px-4 pt-2.5 md:py-2.5 mx-4 rounded dark:bg-gray-800 ">
-        <div className="flex flex-wrap justify-between items-center mt-0.5 width-100">
+        <div className="flex flex-wrap justify-between items-center mt-0.5 ">
           <div className="flex md:order-2">
             <div className="hidden relative md:block">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">

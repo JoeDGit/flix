@@ -10,12 +10,12 @@ export default function Title(props) {
   return (
     props.searchResult.title && (
       <div className="flex flex-col mt-2 text-white min-w-[24rem] max-w-[24rem] ">
-        <div className="mb-1 font-bold truncate text-center md:text-left">
+        <div className="mb-1 font-bold truncate text-center">
           {props.searchResult.title}
           {props.searchResult.releaseDate &&
             ` (${props.searchResult.releaseDate.substr(0, 4)})`}
         </div>
-        <div className="font-bold text-center md:text-left">
+        <div className="font-bold text-center ">
           Rating: {rating}
           <img
             className="inline ml-2 mb-2"

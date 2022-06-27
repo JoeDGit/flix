@@ -57,39 +57,37 @@ export const Randomiser = () => {
   };
 
   return (
-    <div>
-      <div className="flex max-w-screen">
-        <div className=" md:pt-4 flex flex-col rounded-lg   mx-auto">
-          <h3 className="hidden sm:block text-2xl mb-2 font-mono text-white mx-auto">
-            The Randomiser
-          </h3>
-          <MediaTypeComponent setMediaType={setMediaType} />
+    <div className="flex w-[100vw] ">
+      <div className=" md:pt-4 flex flex-col rounded-lg   mx-auto">
+        <h3 className=" text-2xl mb-2 font-mono text-white mx-auto">
+          The Randomiser
+        </h3>
+        <MediaTypeComponent setMediaType={setMediaType} />
 
-          <RatingSlider
-            handleSlideChange={handleSlideChange}
-            mediaType={mediaType}
-            sliderValue={sliderValue}
-            search={search}
-          />
+        <RatingSlider
+          handleSlideChange={handleSlideChange}
+          mediaType={mediaType}
+          sliderValue={sliderValue}
+          search={search}
+        />
 
-          <PosterContainer
-            searchResult={searchResult}
-            resultHistory={resultHistory}
-          />
-          <SearchButton
-            search={search}
-            mediaType={mediaType}
-            sliderValue={sliderValue}
-            searchResult={searchResult}
-            resultHistory={resultHistory}
-            setResultHistory={setResultHistory}
-            setSearchResult={setSearchResult}
-            callId={callId}
-            shallowHistoryState={shallowHistoryState}
-          />
-          <Title searchResult={searchResult} />
-          <Blurb searchResult={searchResult} />
-        </div>
+        <PosterContainer
+          searchResult={searchResult}
+          resultHistory={resultHistory}
+        />
+        <SearchButton
+          search={search}
+          mediaType={mediaType}
+          sliderValue={sliderValue}
+          searchResult={searchResult}
+          resultHistory={resultHistory}
+          setResultHistory={setResultHistory}
+          setSearchResult={setSearchResult}
+          callId={callId}
+          shallowHistoryState={shallowHistoryState}
+        />
+        <Title searchResult={searchResult} />
+        <Blurb searchResult={searchResult} />
       </div>
     </div>
   );

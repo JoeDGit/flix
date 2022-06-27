@@ -17,7 +17,7 @@ export default function Blurb(props) {
   }, [props.searchResult]);
 
   return (
-    <div className="flex  text-center md:text-left min-h-[100px] min-w-[200px] max-w-[400px]  text-white text-sm">
+    <div className="flex  text-center  min-h-[100px] min-w-[200px] max-w-[400px]  text-white text-sm">
       {finalBlurb}
     </div>
   );
