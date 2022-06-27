@@ -3,7 +3,7 @@ import React from "react";
 export default function MediaTypeComponent(props) {
   return (
     <div
-      className=" text-lg flex justify-center ml-9 mb-2  text-white"
+      className=" text-lg flex justify-center ml-9 md:mb-2  text-white"
       id="mediaChoice"
     >
       <label className="mr-3" id="mediaSelectLabel">

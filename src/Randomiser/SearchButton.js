@@ -16,9 +16,9 @@ export default function SearchButton(props) {
   };
 
   return (
-    <div className="flex mw-6">
+    <div className="flex gap-3 justify-center ">
       <button
-        className="order-2 text-white p-2 rounded-lg bg-[#374151] hover:animate-pulse border-box hover:ring-1 transition-all ring-white w-48 mx-auto mt-3 duration-75"
+        className="order-2 basis-[40%] text-white p-2 rounded-lg bg-[#374151]  hover:animate-pulse border-box hover:ring-1 transition-all ring-white md:w-48   mt-3 duration-75 "
         onClick={() => props.search(props.mediaType, props.sliderValue)}
       >
         {props.searchResult.title ? "Next!" : "Find Me Something to Watch!"}
@@ -26,7 +26,7 @@ export default function SearchButton(props) {
       {props.resultHistory.length > 1 && (
         <button
           onClick={() => handlePrevious()}
-          className=" text-white p-2 rounded-lg bg-[#374151] hover:animate-pulse border-box hover:ring-1 transition-all ring-white w-48 mx-auto mt-3 duration-75"
+          className=" text-white p-2 basis-[40%] rounded-lg bg-[#374151]  hover:animate-pulse border-box hover:ring-1 transition-all ring-white md:w-48 mt-3 duration-75"
         >
           Previous
         </button>

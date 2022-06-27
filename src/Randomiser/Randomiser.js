@@ -58,9 +58,9 @@ export const Randomiser = () => {
 
   return (
     <div>
-      <div className=" flex ">
-        <div className="pl-16 pr-16 pb-5 pt-4 shadow-2xl  max-w-25 flex flex-col rounded-lg h-full mx-auto">
-          <h3 className="text-2xl mb-2 font-mono text-white mx-auto">
+      <div className="flex max-w-screen">
+        <div className=" md:pt-4 flex flex-col rounded-lg   mx-auto">
+          <h3 className="hidden sm:block text-2xl mb-2 font-mono text-white mx-auto">
             The Randomiser
           </h3>
           <MediaTypeComponent setMediaType={setMediaType} />

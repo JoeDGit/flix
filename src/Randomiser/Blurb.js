@@ -17,17 +17,7 @@ export default function Blurb(props) {
   }, [props.searchResult]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        minHeight: "100px",
-        maxHeight: "120px",
-        minWidth: "200px",
-        maxWidth: "400px",
-        fontSize: "0.94rem",
-        color: "white",
-      }}
-    >
+    <div className="flex  text-center md:text-left min-h-[100px] min-w-[200px] max-w-[400px]  text-white text-sm">
       {finalBlurb}
     </div>
   );
