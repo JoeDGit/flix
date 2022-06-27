@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/flix/static/css/main.82014599.css",
+    "main.js": "/flix/static/js/main.e2722b09.js",
+    "static/js/787.37f192ad.chunk.js": "/flix/static/js/787.37f192ad.chunk.js",
+    "static/media/FlixLogo.png": "/flix/static/media/FlixLogo.6123fdfe6adb94140587.png",
+    "star.svg": "/flix/da902792234bf2a01a587e7787c033e7.svg",
+    "tv.svg": "/flix/307977128f3ef0416eb16c6d4b8a065a.svg",
+    "imdb.svg": "/flix/55e9a457321720f4833e51b2b88c641d.svg",
+    "movie.svg": "/flix/fd92c5105a1014a52c3379b16dfe3995.svg",
+    "yt.svg": "/flix/9e6e68bec2c1f5e29b3b54dc02f54c47.svg",
+    "index.html": "/flix/index.html",
+    "info.svg": "/flix/58f9b66ff5e66d8e9d55c55081801117.svg",
+    "main.82014599.css.map": "/flix/static/css/main.82014599.css.map",
+    "main.e2722b09.js.map": "/flix/static/js/main.e2722b09.js.map",
+    "787.37f192ad.chunk.js.map": "/flix/static/js/787.37f192ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82014599.css",
+    "static/js/main.e2722b09.js"
+  ]
+}
