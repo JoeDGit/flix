@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import InfoModal from "./InfoModal";
+import { computePosition, flip, shift, offset } from "@floating-ui/dom";
+import Tippy from "@tippyjs/react";
+
 import "./cardFlip.css";
 import star from "!file-loader!../assets/star.svg";
 import notFound from "../assets/notFound.jpg";
@@ -10,7 +13,16 @@ import info from "!file-loader!../assets/info.svg";
 import imdb from "!file-loader!../assets/imdb.svg";
 import yt from "!file-loader!../assets/yt.svg";
 
-const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
+const Card = ({
+  title,
+  rating,
+  poster,
+  release,
+  type,
+  imdbId,
+  trailer,
+  overview,
+}) => {
   return (
     <div className="container flex  mx-2 my-2 shrink-0 rounded   bordershadow-xl md:mx-10 md:my-4 flip-card">
       <div className="flip-card-inner">
@@ -75,10 +87,15 @@ const Card = ({ title, rating, poster, release, type, imdbId, trailer }) => {
           <div className="relative flex   justify-center grow text-[20px]  w-[150px] mt-1 whitespace-normal">
             {title}
           </div>
-          <div className="relative mt-2 ">{release}</div>
-          <div className="relative bottom-[50px]  mx-auto ">
-            <img src={info} height="30px" width="30px"></img>
-          </div>
+          <div className=" toolTipTarget relative mt-2 ">{release}</div>
+          <Tippy
+            className="bg-[#1F2937] text-sm text-white rounded p-2 border-[1px] border-solid border-slate-400"
+            content={overview}
+          >
+            <div className=" relative bottom-[50px]  mx-auto ">
+              <img src={info} height="30px" width="30px"></img>
+            </div>
+          </Tippy>
           <div className="relative bottom-[15px] flex items-center align-center mt-1 flex-center w-full">
             <div>
               <a href={imdbId} target="_blank">

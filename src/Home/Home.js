@@ -70,6 +70,7 @@ const Home = () => {
               type={result.type}
               imdbId={result.imdb_id}
               trailer={result.trailer}
+              overview={result.overview}
             />
           );
         })}
