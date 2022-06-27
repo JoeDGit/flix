@@ -35,13 +35,13 @@ export default function Movies() {
   };
 
   const activeLink =
-    "active:text-white border-[1px] text-white border-slate-400 bg-[#1f2937] p-1 rounded-sm text-sm";
+    "active:text-white border-[1px] text-white border-slate-400 bg-[#1f2937] p-1 rounded-sm text-sm ";
   const normalLink =
-    "bg-slate-400 p-1 rounded-md border-[1px] border-transparent p-1 hover:border-[1px] hover:text-white hover:border-slate-400 hover:bg-[#1f2937] text-[#1f2937] cursor-pointer transition-all durations-300 ease-linear text-sm ";
+    "bg-slate-400 p-1 rounded-md border-[1px] border-transparent p-1 hover:border-[1px] hover:text-white hover:border-slate-400 hover:bg-[#1f2937] text-[#1f2937] cursor-pointer transition-all durations-300 ease-linear text-sm  ";
 
   return (
     <React.Fragment>
-      <div className="w-100 flex justify-center items-center ">
+      <div className="w-100 justify-center items-center hidden sm:flex">
         <ul className="gap-6 flex mt-4  ">
           <li>
             <a
@@ -73,6 +73,42 @@ export default function Movies() {
               onClick={() => handleClick("top_rated")}
             >
               Highest Rated
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div className="mobile-nav w-100  flex justify-center items-center sm:hidden ">
+        <ul className=" text-xs flex mt-4  gap-1 ">
+          <li>
+            <a
+              className={endpoint === "now_playing" ? activeLink : normalLink}
+              onClick={() => handleClick("now_playing")}
+            >
+              Cinemas
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "upcoming" ? activeLink : normalLink}
+              onClick={() => handleClick("upcoming")}
+            >
+              Upcoming
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "popular" ? activeLink : normalLink}
+              onClick={() => handleClick("popular")}
+            >
+              Popular
+            </a>
+          </li>
+          <li>
+            <a
+              className={endpoint === "top_rated" ? activeLink : normalLink}
+              onClick={() => handleClick("top_rated")}
+            >
+              Rated
             </a>
           </li>
         </ul>

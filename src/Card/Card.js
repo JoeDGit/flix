@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Tippy from "@tippyjs/react";
-
 import "./cardFlip.css";
 import star from "!file-loader!../assets/star.svg";
 import notFound from "../assets/notFound.jpg";
-
 import tv from "!file-loader!../assets/tv.svg";
 import movie from "!file-loader!../assets/movie.svg";
 import info from "!file-loader!../assets/info.svg";
