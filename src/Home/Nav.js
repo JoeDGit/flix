@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
+import flixlogo from "!file-loader!./flixlogo.svg";
 
 const getWindowWidth = () => {
   const width = window.innerWidth;
@@ -41,8 +42,13 @@ export default function Nav() {
   };
   return (
     <div className="w-full">
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 pt-2.5 md:py-2.5 mx-4 rounded dark:bg-gray-800 ">
+      <nav className="bg-white border-gray-200 px-2 sm:px-4 pt-2.5 md:py-2.5 mb-2 md:mb-0 mx-4 rounded dark:bg-gray-800 ">
         <div className="flex flex-wrap justify-between items-center mt-0.5 ">
+          <div className="rounded md:block  md:order-1 h-[30px] w-[50x]">
+            <a href="/">
+              <img className=" h-[30px] w-[50x]" src={flixlogo}></img>
+            </a>
+          </div>
           <div className="flex md:order-2">
             <div className="hidden relative md:block">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
