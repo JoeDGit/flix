@@ -41,40 +41,17 @@ export default function Nav() {
     setActiveNav(navlink);
   };
   return (
-    <div className="w-full">
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 pt-2.5 md:py-2.5 mb-2 md:mb-0 mx-4 rounded dark:bg-gray-800 ">
-        <div className="flex flex-wrap justify-between items-center mt-0.5 ">
-          <div className="rounded md:block  md:order-1 h-[30px] w-[50x]">
+    <div className="w-full border-b-[1px] border-gray-400">
+      <nav className=" border-gray-200 px-2 sm:px-4 pt-2.5  md:pb-2.5 md:pt-1.5 mb-2 md:mb-0 mx-4 rounded   ">
+        <div className="flex flex-wrap md:justify-start justify-between items-center mt-0.5 ">
+          <div className="mr-8">
             <a href="/">
               <img className=" h-[30px] w-[50x]" src={flixlogo}></img>
             </a>
           </div>
-          <div className="flex md:order-2">
-            <div className="hidden relative md:block">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </div>
-
-              <input
-                type="text"
-                id="search-navbar"
-                className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                placeholder="Search..."
-              ></input>
-            </div>
-
+          <div className="flex ">
             <button
+              id="hamburgerMenu"
               type="button"
               onClick={handleMenuClick}
               className="inline-flex items-center p-2 text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 "
@@ -106,28 +83,9 @@ export default function Nav() {
             </button>
           </div>
           {menuActive && (
-            <div className=" justify-between items-center w-full md:flex md:w-auto md:order-1">
+            <div className=" justify-between items-center w-full md:flex md:w-auto md:relative md:top-[5px]  ">
               <div className="relative mt-3 md:hidden">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg
-                    className="w-5 h-5 text-gray-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-
-                <input
-                  type="text"
-                  className="block p-2 pl-10 w-full text-gray-900 bg-gray-700 rounded-lg border border-gray-300 text-sm "
-                  placeholder="Search..."
-                />
+                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"></div>
               </div>
 
               <ul className="flex flex-col mt-4  md:flex-start md:flex-row md:space-x-8 md:mt-0 md:text-medium md:font-medium ">

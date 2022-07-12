@@ -20,7 +20,7 @@ const Card = ({
   overview,
 }) => {
   return (
-    <div className="container flex  mx-2 my-2 shrink-0 rounded   bordershadow-xl md:mx-10 md:my-4 flip-card">
+    <div className="container flex  mx-2 my-2 shrink-0 rounded   bordershadow-xl md:mx-10 md:my-4 flip-card ">
       <div className="flip-card-inner">
         <div
           className="flip-card-front container flex bg-contain bg-no-repeat  shrink-0   rounded  "
