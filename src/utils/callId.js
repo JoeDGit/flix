@@ -1,6 +1,6 @@
 //generates IMDb id from TMDb id using TMDb endpoint
 import { generateImdbId } from "./generateImdbId";
-const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
+const api_key = process.env.REACT_APP_API_KEY;
 
 export const callId = async (id, mediaType) => {
   let {

@@ -1,6 +1,6 @@
 import { generateImdbId } from "./generateImdbId";
 import { generateTrailer } from "./generateTrailer";
-const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
+const api_key = process.env.REACT_APP_API_KEY;
 
 // const type = ["movie", "tv"]
 // query = [popular, now_playing, latest, top_rated]

@@ -1,4 +1,4 @@
-const api_key = "fd4e5f51938f96d0f16bfb76bed86942";
+const api_key = process.env.REACT_APP_API_KEY;
 
 export const generateImdbId = async (id, type = "movie") => {
   let imdbFetch = await fetch(
