@@ -136,10 +136,10 @@ export default function Nav() {
               </ul>
             </div>
           )}
-          <div className="hidden md:flex child:px-8 child:py-1 child:rounded child:bg-gray-200 gap-3">
+          {/* <div className="hidden md:flex child:px-8 child:py-1 child:rounded child:bg-gray-200 gap-3">
             <button>Register</button>
             <button>Login</button>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
