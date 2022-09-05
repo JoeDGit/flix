@@ -3,20 +3,11 @@ import "../index.css";
 import flixlogo from "!file-loader!./flixlogo.svg";
 import { NavLink } from "react-router-dom";
 
-const getWindowWidth = () => {
-  const width = window.innerWidth;
-  return width;
-};
-
 export default function Nav() {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(true);
 
   const handleMenuClick = () => {
-    if (menuActive) {
-      setMenuActive(false);
-    } else {
-      setMenuActive(true);
-    }
+    menuActive ? setMenuActive(false) : setMenuActive(true);
   };
 
   const standardStyle =
