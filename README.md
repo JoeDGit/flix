@@ -7,7 +7,7 @@ Flix was created using `React(Js)` and `TailwindCSS`
 
 ## Getting started
 
-Once you've cloned the repo simply run `npm start` to get started.
+Once you've cloned the repo simply run `npm i` to install dependencies and then once they're installed run `npm start` to get started.
 
 
 ## Live preview
